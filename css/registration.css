@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.container-fluid {
+  background-color: rgb(201, 128, 139);
+  background-image: url(G:\mainproject\storingdata\images\image1.png);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+.content {
+  border: 1px solid green;
+  padding: 10px 100px;
+  border-radius: 5px;
+  background-color: rgb(232, 241, 250);
+}
+h5 {
+  color: red;
+  font-family: "Courier New";
+  font-size: 15px;
+}
