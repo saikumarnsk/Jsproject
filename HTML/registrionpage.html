@@ -1,88 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Document</title>
+    <title>Registration Page</title>
     <link
       rel="stylesheet"
-      href="G:\mainproject\storingdata\css\registration.css"
+      href="../css/registration.css"
     />
     <link
       rel="stylesheet"
-      href="G:\mainproject\storingdata\css\Bootstrap.css"
+      href="../css/Bootstrap.css"
     />
   </head>
+  <script src="../js/registration.js"></script>
   <body>
-    <div class="container-fluid">
-      <div class="container">
+   
+       <div class="container">
         <div class="content">
           <h5>Registration Page</h5>
-          <form method="GET">
+          <form href="#">
             <div>
-              <span>
-                <label for="usr">First Name:</label>
-                <input type="text" class="form-control" id="usr" />
-              </span>
+                <label for="pwd">First Name:</label>
+                <input type="text" class="form-control"  placeholder="Enter FirstName" id="fname" required/>
             </div>
             <div>
               <label for="pwd">Last Name:</label>
-              <input type="text" class="form-control" id="pwd" />
+              <input type="text" class="form-control"  placeholder="Enter LastName" id="lname" required/>
             </div>
             <div>
               <label for="pwd">Mobile:</label>
-              <input type="tel" class="form-control" id="pwd" />
+              <input type="tel" class="form-control"  placeholder="Enter MobileNumber" id="mobile" required/>
             </div>
             <div>
               <label for="pwd">Email:</label>
-              <input type="email" class="form-control" id="pwd" />
+              <input type="email" class="form-control"  placeholder="Enter FirstName"  id="email" required/>
             </div>
-            <div>
-              <br />
-              <a href="#">
-                <button type="button" class="btn btn-success">Submit</button>
-              </a>
-              <a href="#">
-                <button type="button" class="btn btn-primary">Reset</button>
-              </a>
+            <br>
+            <div id="saveButtons">           
+                <button type="button" id="entry" onclick="registerUser()" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
             </div>
+            <div id="updateButton" class="hidden">
+              <button type="button" id="entry" onclick="updateUser()" class="btn btn-success">Update</button>
+          </div>
           </form>
         </div>
       </div>
       <div class="table-content m-5">
-        <table class="table table-bordered">
+        <table style="color: white;" id="userDetails" class="table table-bordered">
           <thead>
             <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>PhoneNumber</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Mobile</th>
               <th>Email</th>
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="success">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr class="danger">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
         </table>
       </div>
     </div>
   </body>
 </html>
+<!DOCTYPE html>
+<html>
+  <head>
+    
