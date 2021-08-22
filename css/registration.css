@@ -17,12 +17,23 @@ body {
 .hidden {
   display: none;
 }
+.saved-message,
+.delete-message {
+  color: green;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: cursive;
+  margin: 6px 0;
+}
+.delete-message {
+  color: red;
+}
 .container {
   display: flex;
   justify-content: center;
 }
 .content {
-  box-shadow: 10px 10px 5px rgb(216, 77, 77);
+  box-shadow: 4px 4px 1px #b5a7a7;
   border: 1px solid green;
   padding: 10px 100px;
   border-radius: 5px;
