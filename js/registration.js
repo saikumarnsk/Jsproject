@@ -1,6 +1,7 @@
 const storeDetais = [];
 
 let isNotValidMobile = false;
+let fname, lname, mobile, email;
 
 function validateMobile() {
   const mobileNumber = document.getElementById("mobile").value;
@@ -11,7 +12,28 @@ function validateMobile() {
     return;
   }
 }
-
+function updateUser() {
+  const fname = document.getElementById("fname").value;
+  const lname = document.getElementById("lname").value;
+  const mobile = document.getElementById("mobile").value;
+  const email = document.getElementById("email").value;
+  let table = document.getElementById("userDetails");
+  table.innerHTML =
+    table.innerHTML +
+    "<tr><td>" +
+    fname +
+    "</td>" +
+    "<td>" +
+    lname +
+    "</td>" +
+    "<td>" +
+    mobile +
+    "</td>" +
+    "<td>" +
+    email +
+    "</td>" +
+    "<td></tr>";
+}
 function editUser(mobileNumber) {
   const userData = storeDetais.find((item) => item.mobile == mobileNumber);
   document.getElementById("fname").value = userData.fName;
@@ -24,8 +46,10 @@ function editUser(mobileNumber) {
   document.getElementById("updateButton").classList.toggle("hidden");
 }
 
-function deleteUser(mobileNumber) {
-  console.log("You Clicked On Delete", mobileNumber);
+function deleteUser(r) {
+  var i = r.parentNode.parentNode.rowIndex;
+  alert(i);
+  document.getElementById("userDetails").deleteRow(i);
 }
 
 function registerUser() {
@@ -73,6 +97,6 @@ function registerUser() {
     "<td><img onclick='editUser(" +
     mobile +
     ")' src='../images/edit.png' class='action-image' width='25px' height='25px'/><img onclick='deleteUser((" +
-    mobile +
+    this +
     ")' src='../images/delete-icon.jpg' width='25px' height='25px' class='action-image' /></td></tr>";
 }

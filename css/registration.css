@@ -22,10 +22,14 @@ body {
   justify-content: center;
 }
 .content {
+  box-shadow: 10px 10px 5px rgb(216, 77, 77);
   border: 1px solid green;
   padding: 10px 100px;
   border-radius: 5px;
   background-color: rgb(232, 241, 250);
+}
+table {
+  box-shadow: 5px 5px 5px 5px;
 }
 h5 {
   color: red;
