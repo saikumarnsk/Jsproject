@@ -7,7 +7,7 @@ let fname, lname, mobile, email;
 function validateMobile() {
   const mobileNumber = document.getElementById("mobile").value;
   isNotValidMobile = storeDetais.some((item) => item.mobile === mobileNumber);
-  if (isNotValidMobile) {
+  if (isNotValidMobile && mobileNumber) {
     isNotValidMobile = true;
     alert("This mobile number is already registered!!");
     return;
@@ -34,6 +34,9 @@ function updateUser() {
   clearFormData();
   document.getElementById("saveButtons").classList.toggle("hidden");
   document.getElementById("updateButton").classList.toggle("hidden");
+  document
+    .getElementsByClassName("saved-message")[0]
+    .classList.toggle("hidden");
   // const updatedStore = storeDetais.map((item) => {
   //   if (item.mobile == updatedMobileNumber) {
   //     return {
@@ -60,6 +63,9 @@ function editUser(mobileNumber) {
   document.getElementById("mobile").setAttribute("disabled", true);
   document.getElementById("saveButtons").classList.toggle("hidden");
   document.getElementById("updateButton").classList.toggle("hidden");
+  document
+    .getElementsByClassName("saved-message")[0]
+    .classList.toggle("hidden");
 }
 
 function deleteUser(mobileNumber, actionType) {
@@ -69,6 +75,12 @@ function deleteUser(mobileNumber, actionType) {
   table.deleteRow(index + 1);
   if (actionType !== "updating") {
     storeDetais.splice(index, 1);
+    document
+      .getElementsByClassName("delete-message")[0]
+      .classList.toggle("hidden");
+    document
+      .getElementsByClassName("saved-message")[0]
+      .classList.toggle("hidden");
   }
 }
 
@@ -79,12 +91,14 @@ function registerUser() {
   }
   const fname = document.getElementById("fname").value;
   const lname = document.getElementById("lname").value;
+  const gender = document.getElementById("radio1").checked ? "Male" : "Female";
   const mobile = document.getElementById("mobile").value;
   const email = document.getElementById("email").value;
 
   const userData = {
     fName: fname,
     lName: lname,
+    gender: gender,
     mobile: mobile,
     email: email,
   };
@@ -95,10 +109,20 @@ function registerUser() {
     alert("Please Fill The Details");
     return;
   }
-  updateTableDOM(fname, lname, mobile, email);
+  updateTableDOM(fname, lname, gender, mobile, email);
+
+  document
+    .getElementsByClassName("saved-message")[0]
+    .classList.remove("hidden");
+
+  if (storeDetais.length) {
+    document
+      .getElementsByClassName("table-content")[0]
+      .classList.remove("hidden");
+  }
 }
 
-function updateTableDOM(firstName, lastName, mobile, email) {
+function updateTableDOM(firstName, lastName, gender, mobile, email) {
   const table = document.getElementById("userDetails");
   table.innerHTML =
     table.innerHTML +
@@ -107,6 +131,9 @@ function updateTableDOM(firstName, lastName, mobile, email) {
     "</td>" +
     "<td>" +
     lastName +
+    "</td>" +
+    "<td>" +
+    gender +
     "</td>" +
     "<td>" +
     mobile +
@@ -119,7 +146,6 @@ function updateTableDOM(firstName, lastName, mobile, email) {
     ")' src='../images/edit.png' class='action-image' width='25px' height='25px'/><img onclick='deleteUser(" +
     mobile +
     ")' src='../images/delete-icon.jpg' width='25px' height='25px' class='action-image' /></td></tr>";
-  alert("Details  Submited Successfully");
 }
 
 function clearFormData() {

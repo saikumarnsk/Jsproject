@@ -17,6 +17,8 @@
        <div class="container">
         <div class="content">
           <div class="title">Registration Page</div>
+          <div class="saved-message hidden">Data Saved Successfully!!</div>
+          <div class="delete-message hidden">Data Deleted Successfully!!</div>
           <form href="#">
             <div>
                 <label for="pwd">First Name:</label>
@@ -25,6 +27,21 @@
             <div>
               <label for="pwd">Last Name:</label>
               <input type="text" class="form-control"  placeholder="Enter LastName" id="lname" required/>
+            </div>
+            <div>
+              <label>Gender:</label>
+              <div class="d-flex">
+              <div class="form-check mr-3" >
+                <label class="form-check-label" for="radio1">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="Male" checked>Male
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label" for="radio2">
+                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Female">Female
+                </label>
+              </div>
+            </div>
             </div>
             <div>
               <label for="pwd">Mobile:</label>
@@ -45,15 +62,17 @@
           </form>
         </div>
       </div>
-      <div class="table-content m-5">
+      <div class="table-content m-5 hidden">
         <table style="color: white;" id="userDetails" class="table table-bordered">
           <thead>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
+              <th>Gender</th>
               <th>Mobile</th>
               <th>Email</th>
               <th>Actions</th>
+              
             </tr>
           </thead>
           <tbody>
